@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Dashboard - Portofolio & Galeri Tugas Saya</title>
+  <meta name="description"
+    content="Ini adalah pusat portofolio dan manajemen tugas sekolah Leticia Cielo Kurniawan. Mengelola profil dan mengumpulkan semua tugas secara interaktif.">
+  <meta name="keywords"
+    content="portofolio, tugas sekolah, informatika, bahasa indonesia, leticia, siswa, sma cinta kasih tzu chi">
+  <meta name="author" content="Leticia Cielo Kurniawan">
+  <meta property="og:title" content="Dashboard - Portofolio & Galeri Tugas Saya">
+  <meta property="og:description" content="Pusat portofolio dan manajemen tugas sekolah Leticia Cielo Kurniawan.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans for UI, Outfit for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            pastel: {
+              blue: {
+                DEFAULT: '#E0F2FE',
+                hover: '#BAE6FD',
+                text: '#0369A1',
+                darkbg: '#0F172A'
+              },
+              emerald: {
+                DEFAULT: '#D1FAE5',
+                text: '#065F46'
+              },
+              indigo: {
+                DEFAULT: '#E0E7FF',
+                text: '#3730A3'
+              },
+              amber: {
+                DEFAULT: '#FEF3C7',
+                text: '#92400E'
+              },
+              rose: {
+                DEFAULT: '#FFE4E6',
+                text: '#9F1239'
+              }
+            }
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.08)',
+            'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'premium': '0 20px 40px -15px rgba(14, 165, 233, 0.12)',
+            'premium-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body
+  class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 min-h-screen flex flex-col antialiased overflow-x-hidden">
+
+  <!-- Loading Screen Loader -->
+  <div id="loading-screen">
+    <div class="loading-spinner"></div>
+    <span class="text-sm font-heading font-extrabold text-slate-600 dark:text-slate-350 tracking-wider">Loading
+      Portofolio...</span>
+  </div>
+
+  <div class="page-transition flex-1 min-h-screen flex flex-col">
+
+    <!-- ================= TOP NAVIGATION HEADER ================= -->
+    <header
+      class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+
+          <!-- Left: Logo / Brand -->
+          <div class="flex items-center gap-3">
+            <a href="index.html" onclick="switchTab('dashboard'); return false;" class="cursor-pointer flex items-center gap-2.5 group">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                L
+              </div>
+              <div>
+                <h1
+                  class="font-heading font-extrabold text-base leading-tight tracking-wide dark:text-white group-hover:text-brand-500 transition-colors">
+                  Leticias
+                </h1>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Profil & Kumpulan Tugas</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Center: Desktop Navigation Bar Links -->
+          <nav class="hidden md:flex items-center gap-1.5">
+            <a href="index.html" id="nav-dashboard"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200" onclick="switchTab('dashboard'); return false;">
+              <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="profil.html" id="nav-profil"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200" onclick="switchTab('profil'); return false;">
+              <i data-lucide="user" class="w-4 h-4"></i>
+              <span>Profil</span>
+            </a>
+            <a href="informatika.html" id="nav-informatika"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200" onclick="switchTab('informatika'); return false;">
+              <i data-lucide="binary" class="w-4 h-4"></i>
+              <span>Informatika</span>
+            </a>
+            <a href="bahasa-indonesia.html" id="nav-bahasa_indonesia"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200" onclick="switchTab('bahasa_indonesia'); return false;">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>B. Indonesia</span>
+            </a>
+          </nav>
+
+          <!-- Right: Clock, Theme, Lock button, Avatar -->
+          <div class="flex items-center gap-3">
+            <!-- Live Clock -->
+            <div
+              class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40 border border-slate-200/20 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span id="live-clock">00:00:00 WIB</span>
+            </div>
+
+            <!-- Theme Switcher Button -->
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"
+              class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-650 dark:text-slate-355 border border-slate-200/40 dark:border-slate-800/80 transition-all hover:scale-105">
+              <i id="theme-btn-icon" data-lucide="sun" class="w-4.5 h-4.5 text-brand-600 dark:text-brand-400"></i>
+            </button>
+
+
+
+
+
+            <!-- HTML Export Button -->
+            <button onclick="openExportModal()"
+              class="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all hover:scale-105 shadow-sm">
+              <i data-lucide="download-cloud" class="w-4 h-4"></i>
+              <span>Ekspor</span>
+            </button>
+
+            <!-- Top Avatar Shortcut -->
+            <a href="profil.html" onclick="switchTab('profil'); return false;"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden border border-slate-250 dark:border-slate-750 hover:scale-105 transition-all p-0.5"
+              id="header-avatar-btn">
+              <!-- Rendered Avatar -->
+            </a>
+
+            <!-- Hamburger Button for Mobile Menu -->
+            <button onclick="toggleMobileMenu()"
+              class="md:hidden p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-655 dark:text-slate-300 border border-slate-200/40 dark:border-slate-800/80 transition-all">
+              <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation Menu -->
+      <div id="mobile-menu"
+        class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-all duration-300">
+        <div class="px-4 py-3.5 space-y-2">
+          <a href="index.html" id="mobile-nav-dashboard"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all" onclick="switchTab('dashboard'); return false;">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="profil.html" id="mobile-nav-profil"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all" onclick="switchTab('profil'); return false;">
+            <i data-lucide="user" class="w-4.5 h-4.5"></i>
+            <span>Profil Saya</span>
+          </a>
+          <a href="informatika.html" id="mobile-nav-informatika"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all" onclick="switchTab('informatika'); return false;">
+            <i data-lucide="binary" class="w-4.5 h-4.5"></i>
+            <span>Informatika</span>
+          </a>
+          <a href="bahasa-indonesia.html" id="mobile-nav-bahasa_indonesia"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all" onclick="switchTab('bahasa_indonesia'); return false;">
+            <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
+            <span>Bahasa Indonesia</span>
+          </a>
+          <div class="pt-2 border-t border-slate-150 dark:border-slate-800/80">
+            <button onclick="openExportModal()"
+              class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all">
+              <i data-lucide="download-cloud" class="w-4.5 h-4.5"></i>
+              <span>Unduh File Hosting (Ekspor)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN WRAPPER ================= -->
+    <main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto pb-24">
+
+      <!-- ================= 1. TAB: DASHBOARD ================= -->
+      <section id="tab-dashboard" class="tab-content space-y-6">
+
+        <!-- Welcome Hero Banner Card -->
+        <div
+          class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-brand-100 via-sky-50 to-brand-200/40 dark:from-slate-900 dark:via-brand-950/20 dark:to-slate-900 border border-brand-200/40 dark:border-slate-800/80 p-8 shadow-glass dark:shadow-glass-dark hover:shadow-premium dark:hover:shadow-premium-dark transition-all duration-300">
+          <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-brand-300/20 dark:bg-brand-500/10 blur-2xl">
+          </div>
+          <div
+            class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-brand-200/30 dark:bg-brand-800/10 blur-2xl">
+          </div>
+
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="space-y-3">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-200/80 dark:bg-brand-900 text-brand-800 dark:text-brand-300 tracking-wide uppercase">
+                Selamat Datang
+              </span>
+              <h2 class="font-heading font-extrabold text-3xl md:text-4xl tracking-tight dark:text-white leading-tight">
+                Halo, <span id="hero-user-name"
+                  class="bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent">Leticia
+                  Cielo Kurniawan</span>! 👋
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                Ini adalah pusat portofolio dan manajemen tugas sekolah saya. Mengelola profil dan kumpulkan semua tugas
+                dalam satu wadah interaktif yang cantik!
+              </p>
+            </div>
+            <div class="flex items-center gap-4 flex-wrap">
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Numerical Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <!-- Stat 1: Total -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Total
+                Tugas</span>
+              <div class="p-2 rounded-xl bg-brand-50 dark:bg-brand-950/40 text-brand-500">
+                <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span id="stat-total-assignments"
+                class="font-heading font-extrabold text-3xl md:text-4xl dark:text-white">0</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Tugas</span>
+            </div>
+          </div>
+          <!-- Stat 2: Informatika -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <span
+                class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Informatika</span>
+              <div class="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-500">
+                <i data-lucide="binary" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span id="stat-informatics-assignments"
+                class="font-heading font-extrabold text-3xl md:text-4xl dark:text-white">0</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Tugas</span>
+            </div>
+          </div>
+          <!-- Stat 3: B. Indonesia -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Bahasa
+                Indonesia</span>
+              <div class="p-2 rounded-xl bg-violet-50 dark:bg-violet-950/40 text-violet-500">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span id="stat-indonesian-assignments"
+                class="font-heading font-extrabold text-3xl md:text-4xl dark:text-white">0</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Tugas</span>
+            </div>
+          </div>
+          <!-- Stat 4: Average Score -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Rata-Rata
+                Nilai</span>
+              <div class="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-500">
+                <i data-lucide="star" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span id="stat-avg-score"
+                class="font-heading font-extrabold text-3xl md:text-4xl dark:text-white">-</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-semibold">Skor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split Grid (Chart vs Quote) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Learning Curve & SVG Interactive Chart -->
+          <div
+            class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between hover:shadow transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h3 class="font-heading font-bold text-lg dark:text-white">Statistik Nilai & Progres Belajar</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Distribusi nilai pada tugas-tugas terakhir</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span> Informatika
+                  </span>
+                  <span class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-violet-500"></span> B. Indonesia
+                  </span>
+                </div>
+              </div>
+
+              <!-- Interactive SVG Chart Area -->
+              <div class="w-full h-56 mt-4 relative flex items-end justify-center">
+                <svg id="dashboard-svg-chart" viewBox="0 0 500 200"
+                  class="w-full h-full text-slate-300 dark:text-slate-700">
+                  <line x1="40" y1="20" x2="480" y2="20" stroke="currentColor" stroke-dasharray="4" stroke-width="0.5">
+                  </line>
+                  <line x1="40" y1="80" x2="480" y2="80" stroke="currentColor" stroke-dasharray="4" stroke-width="0.5">
+                  </line>
+                  <line x1="40" y1="140" x2="480" y2="140" stroke="currentColor" stroke-dasharray="4"
+                    stroke-width="0.5"></line>
+                  <line x1="40" y1="180" x2="480" y2="180" stroke="currentColor" stroke-width="1"></line>
+
+                  <!-- Y Axis -->
+                  <text x="15" y="24" fill="currentColor" class="text-[9px] font-medium font-sans">100</text>
+                  <text x="15" y="84" fill="currentColor" class="text-[9px] font-medium font-sans">80</text>
+                  <text x="15" y="144" fill="currentColor" class="text-[9px] font-medium font-sans">65</text>
+                  <text x="15" y="184" fill="currentColor" class="text-[9px] font-medium font-sans">40</text>
+
+                  <path id="chart-path-info" d="" fill="none" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                  <path id="chart-area-info" d="" fill="url(#grad-info)" opacity="0.15"></path>
+
+                  <path id="chart-path-indo" d="" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                  <path id="chart-area-indo" d="" fill="url(#grad-indo)" opacity="0.15"></path>
+
+                  <defs>
+                    <linearGradient id="grad-info" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#0ea5e9"></stop>
+                      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"></stop>
+                    </linearGradient>
+                    <linearGradient id="grad-indo" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#8b5cf6"></stop>
+                      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"></stop>
+                    </linearGradient>
+                  </defs>
+                  <g id="chart-dots"></g>
+                  <g id="chart-x-labels"></g>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span>* Data dihimpun dari nilai tugas yang dimasukkan</span>
+              <a href="informatika.html" onclick="switchTab('informatika'); return false;"
+                class="text-brand-600 dark:text-brand-400 font-bold hover:underline">Kelola Tugas &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Column right: Quotes & Subject Shortcuts -->
+          <div
+            class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm flex flex-col justify-between space-y-6 hover:shadow transition-all duration-300">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-heading font-bold text-lg dark:text-white">Kutipan Hari Ini</h3>
+                <button onclick="refreshQuote()"
+                  class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors">
+                  <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div
+                class="relative p-5 rounded-2xl bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100/50 dark:border-brand-900/20">
+                <i data-lucide="quote"
+                  class="absolute -top-3 -left-2 w-8 h-8 text-brand-200 dark:text-brand-900 opacity-60"></i>
+                <p id="quote-text"
+                  class="text-sm font-medium text-slate-600 dark:text-slate-300 italic leading-relaxed z-10 relative">
+                  "Satu-satunya batasan untuk meraih mimpi kita adalah keragu-raguan kita hari ini. Teruslah berkarya
+                  dan belajar!"
+                </p>
+                <p id="quote-author" class="text-xs font-bold text-brand-700 dark:text-brand-400 mt-3 text-right">
+                  — Anonymous
+                </p>
+              </div>
+            </div>
+
+            <!-- Subject shortcuts -->
+            <div class="space-y-3">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Akses Cepat Mata
+                Pelajaran</h4>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="informatika.html" onclick="switchTab('informatika'); return false;" class="flex flex-col items-center justify-center gap-3 p-4 rounded-2xl bg-slate-50 hover:bg-white dark:bg-slate-800/40 dark:hover:bg-slate-800 border border-slate-100 hover:border-brand-200 dark:border-slate-800 dark:hover:border-brand-800 shadow-sm hover:shadow transition-all group">
+                  <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i data-lucide="binary" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300">Informatika</span>
+                </a>
+                <a href="bahasa-indonesia.html" onclick="switchTab('bahasa_indonesia'); return false;" class="flex flex-col items-center justify-center gap-3 p-4 rounded-2xl bg-slate-50 hover:bg-white dark:bg-slate-800/40 dark:hover:bg-slate-800 border border-slate-100 hover:border-brand-200 dark:border-slate-800 dark:hover:border-brand-800 shadow-sm hover:shadow transition-all group">
+                  <div class="w-12 h-12 rounded-full bg-violet-100 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300">Bahasa Indonesia</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activities Assignments Log Table -->
+        <div
+          class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm space-y-4 hover:shadow transition-all duration-300">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <h3 class="font-heading font-bold text-lg dark:text-white">Aktivitas & Tugas Terakhir</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Daftar postingan tugas yang baru saja Anda terbitkan
+              </p>
+            </div>
+
+            <!-- Dynamic search bar on dashboard -->
+            <div class="w-full sm:w-72 relative">
+              <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+              <input type="text" id="dashboard-search" oninput="filterDashboardRecent()"
+                placeholder="Cari judul tugas..."
+                class="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:bg-slate-800/60 dark:border-slate-700 dark:focus:border-brand-500 dark:focus:ring-brand-900/30">
+            </div>
+          </div>
+
+          <!-- Dashboard Tasks Table -->
+          <div class="overflow-x-auto w-full">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-slate-100 dark:border-slate-800 text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  <th class="py-3.5 px-4">Nama Tugas</th>
+                  <th class="py-3.5 px-4">Kategori / Mapel</th>
+                  <th class="py-3.5 px-4">Tanggal Posting</th>
+                  <th class="py-3.5 px-4 text-center">Nilai</th>
+                  <th class="py-3.5 px-4 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-recent-tbody" class="divide-y divide-slate-100 dark:divide-slate-800/50 text-sm">
+                <!-- Rendered dynamically from Javascript -->
+              </tbody>
+            </table>
+
+            <!-- Empty state -->
+            <div id="dashboard-empty-state"
+              class="hidden flex-col items-center justify-center py-12 text-slate-400 dark:text-slate-600">
+              <i data-lucide="folder-open" class="w-12 h-12 mb-3"></i>
+              <p class="text-sm font-semibold">Tidak ada tugas ditemukan</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+    <!-- ================= JADWAL PELAJARAN ================= -->
+    <!DOCTYPE html>
+    <html lang="id">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Jadwal Pelajaran XI.3</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-slate-100">
+      <div class="max-w-7xl mx-auto py-10 px-6">
+        <div class="text-center mb-10">
+          <h1 class="text-4xl font-bold text-slate-800"> Jadwal Pelajaran Kelas XI.3 </h1>
+          <p class="text-slate-500 mt-2"> Semester Ganjil Tahun Pelajaran 2026 / 2027 </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8"> <!-- SENIN -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="bg-blue-600 text-white px-5 py-3">
+              <h2 class="text-xl font-bold">📅 Senin</h2>
+            </div>
+            <table class="w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="p-3">Jam</th>
+                  <th>Pelajaran</th>
+                  <th>KD</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                <tr>
+                  <td class="p-3">06.30-07.30</td>
+                  <td colspan="2">Upacara / Pendampingan Wali Kelas</td>
+                </tr>
+                <tr>
+                  <td class="p-3">07.30-08.15</td>
+                  <td>Sosiologi</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td class="p-3">08.15-09.00</td>
+                  <td>Sosiologi</td>
+                  <td>3</td>
+                </tr>
+                <tr class="bg-yellow-100 font-semibold">
+                  <td colspan="3" class="text-center p-2">ISTIRAHAT</td>
+                </tr>
+                <tr>
+                  <td class="p-3">09.30-10.10</td>
+                  <td>Mandarin</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.10-10.50</td>
+                  <td>Mandarin</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.50-11.30</td>
+                  <td>Budi Pekerti</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td class="p-3">11.30-12.10</td>
+                  <td>B. Humanis</td>
+                  <td>9</td>
+                </tr>
+                <tr class="bg-yellow-100 font-semibold">
+                  <td colspan="3" class="text-center p-2">ISTIRAHAT</td>
+                </tr>
+                <tr>
+                  <td class="p-3">12.40-13.20</td>
+                  <td>Matematika Wajib</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.20-14.00</td>
+                  <td>Ekonomi</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td class="p-3">14.00-14.40</td>
+                  <td>Ekonomi</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> <!-- SELASA -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="bg-green-600 text-white px-5 py-3">
+              <h2 class="text-xl font-bold">📅 Selasa</h2>
+            </div>
+            <table class="w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="p-3">Jam</th>
+                  <th>Pelajaran</th>
+                  <th>KD</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                <tr>
+                  <td class="p-3">06.30-06.45</td>
+                  <td colspan="2">Pembiasaan Awal</td>
+                </tr>
+                <tr>
+                  <td class="p-3">06.45-07.30</td>
+                  <td>Agama</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td class="p-3">07.30-08.15</td>
+                  <td>Agama</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td class="p-3">08.15-09.00</td>
+                  <td>Bahasa Indonesia</td>
+                  <td>17</td>
+                </tr>
+                <tr>
+                  <td class="p-3">09.00-09.45</td>
+                  <td>Bahasa Indonesia</td>
+                  <td>17</td>
+                </tr>
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.05-10.50</td>
+                  <td>Geografi</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.50-11.35</td>
+                  <td>Geografi</td>
+                  <td>14</td>
+                </tr>
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+                <tr>
+                  <td class="p-3">12.00-12.40</td>
+                  <td>Ekonomi</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td class="p-3">12.40-13.20</td>
+                  <td>Ekonomi</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.20-14.00</td>
+                  <td>Sosiologi</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td class="p-3">14.00-14.30</td>
+                  <td>Sosiologi</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- RABU -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="bg-purple-600 text-white px-5 py-3">
+              <h2 class="text-xl font-bold">📅 Rabu</h2>
+            </div>
+
+            <table class="w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="p-3">Jam</th>
+                  <th>Pelajaran</th>
+                  <th>KD</th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y">
+
+                <tr>
+                  <td class="p-3">06.30-06.45</td>
+                  <td colspan="2">Pembiasaan Awal</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">06.45-07.30</td>
+                  <td>Informatika</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td class="p-3">07.30-08.15</td>
+                  <td>Informatika</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td class="p-3">08.15-09.00</td>
+                  <td>Mandarin</td>
+                  <td>25</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">09.30-10.10</td>
+                  <td>Mandarin</td>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.10-10.50</td>
+                  <td>Sosiologi</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.50-11.30</td>
+                  <td>Bahasa Indonesia</td>
+                  <td>17</td>
+                </tr>
+                <tr>
+                  <td class="p-3">11.30-12.10</td>
+                  <td>Kokurikuler</td>
+                  <td>4</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">12.40-13.20</td>
+                  <td>Sejarah</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.20-14.00</td>
+                  <td>Sejarah</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td class="p-3">14.00-14.40</td>
+                  <td>Seni Budaya</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td class="p-3">14.40-15.20</td>
+                  <td>Seni Budaya</td>
+                  <td>5</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- KAMIS -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="bg-orange-500 text-white px-5 py-3">
+              <h2 class="text-xl font-bold">📅 Kamis</h2>
+            </div>
+
+            <table class="w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="p-3">Jam</th>
+                  <th>Pelajaran</th>
+                  <th>KD</th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y">
+
+                <tr>
+                  <td class="p-3">06.30-06.45</td>
+                  <td colspan="2">Pembiasaan Awal</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">06.45-07.30</td>
+                  <td>Informatika</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td class="p-3">07.30-08.15</td>
+                  <td>Informatika</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td class="p-3">08.15-09.00</td>
+                  <td>Matematika Wajib</td>
+                  <td>10</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">09.30-10.15</td>
+                  <td>Matematika Wajib</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.15-11.00</td>
+                  <td>PKN</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td class="p-3">11.00-11.45</td>
+                  <td>PKN</td>
+                  <td>2</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">12.30-13.15</td>
+                  <td>Bahasa Inggris</td>
+                  <td>27</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.15-13.55</td>
+                  <td>Bahasa Inggris</td>
+                  <td>27</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.55-14.35</td>
+                  <td>Bahasa Inggris</td>
+                  <td>27</td>
+                </tr>
+                <tr>
+                  <td class="p-3">14.35-15.15</td>
+                  <td>Ekonomi</td>
+                  <td>4</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- JUMAT -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden md:col-span-2">
+            <div class="bg-red-600 text-white px-5 py-3">
+              <h2 class="text-xl font-bold">📅 Jumat</h2>
+            </div>
+
+            <table class="w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="p-3">Jam</th>
+                  <th>Pelajaran</th>
+                  <th>KD</th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y">
+
+                <tr>
+                  <td class="p-3">06.30-07.15</td>
+                  <td colspan="2">Jumat Bersih / Literasi / Public Speaking</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">07.15-08.00</td>
+                  <td>PKWU</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td class="p-3">08.00-08.45</td>
+                  <td>PKWU</td>
+                  <td>4</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">09.15-10.00</td>
+                  <td>PJOK</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.00-10.45</td>
+                  <td>PJOK</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td class="p-3">10.45-11.30</td>
+                  <td>Bimbingan Konseling</td>
+                  <td>11</td>
+                </tr>
+
+                <tr class="bg-blue-100">
+                  <td colspan="3" class="text-center font-semibold p-2">JUMAT IBADAH</td>
+                </tr>
+
+                <tr class="bg-yellow-100">
+                  <td colspan="3" class="text-center font-semibold p-2">ISTIRAHAT</td>
+                </tr>
+
+                <tr>
+                  <td class="p-3">13.00-13.45</td>
+                  <td>Geografi</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td class="p-3">13.45-14.30</td>
+                  <td>Geografi</td>
+                  <td>14</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div> <!-- KODE GURU -->
+        <div class="bg-white rounded-2xl shadow-lg mt-10 p-6">
+          <h2 class="text-2xl font-bold mb-5"> Kode Guru </h2>
+          <div class="grid md:grid-cols-3 gap-4 text-sm">
+            <div>3 — Cornel Kaban</div>
+            <div>4 — Debie Lola</div>
+            <div>9 — Iriwaty Japutra</div>
+            <div>10 — Jefry Corpry YH</div>
+            <div>14 — Nur Fajar Sidik</div>
+            <div>17 — Ruly Mediana</div>
+            <div>22 — Yahya Yanuardi</div>
+            <div>25 — Junaidi</div>
+            <div>26 — Suwarni</div>
+          </div>
+        </div>
+      </div>
+    </body>
+
+    </html>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="mt-auto border-t border-slate-200/50 dark:border-slate-800/50 bg-white/75 dark:bg-slate-900/40
+      backdrop-blur-md py-6 sm:py-8 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex flex-col items-center sm:items-start gap-1">
+          <div class="flex items-center gap-2">
+            <span
+              class="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-extrabold text-sm shadow-sm">
+              L
+            </span>
+            <span class="font-heading font-extrabold text-sm tracking-wide dark:text-white">
+              <span id="footer-logo-name">Leticia</span>s
+            </span>
+          </div>
+          <p class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold mt-1">
+            © <span id="footer-year">2026</span> <span id="footer-copyright-name">Leticia Cielo Kurniawan</span> | SMA
+            Cinta Kasih Tzu Chi
+          </p>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+          <a href="index.html" class="hover:text-brand-500 transition-colors">Dashboard</a>
+          <a href="profil.html" class="hover:text-brand-500 transition-colors">Profil</a>
+          <a href="informatika.html" class="hover:text-brand-500 transition-colors">Informatika</a>
+          <a href="bahasa-indonesia.html" class="hover:text-brand-500 transition-colors">B. Indonesia</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- ======================== MODALS ======================== -->
+  <!-- ======================================================= -->
+
+  <!-- 1. DETAIL DIALOG MODAL -->
+  <dialog id="assignment-detail-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-2xl w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col max-h-[85vh]">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span id="detail-modal-subject" class="px-2.5 py-1 rounded-lg text-xs font-bold">Matapelajaran</span>
+          <span id="detail-modal-category"
+            class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-660 dark:text-slate-400">Kategori</span>
+        </div>
+        <button onclick="closeModal('assignment-detail-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5 overflow-y-auto no-scrollbar">
+        <div>
+          <h3 id="detail-modal-title"
+            class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white">Judul Tugas</h3>
+          <div class="flex items-center gap-4 mt-2 text-xs text-slate-400 font-semibold">
+            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> <span
+                id="detail-modal-date">Tanggal</span></span>
+            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-500"></i> Nilai:
+              <span id="detail-modal-score" class="text-amber-600 font-bold dark:text-amber-400">-</span></span>
+          </div>
+        </div>
+
+        <div
+          class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-sm leading-relaxed text-slate-650 dark:text-slate-350">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-450 dark:text-slate-500 mb-2">Deskripsi Tugas
+          </h4>
+          <p id="detail-modal-description">Deskripsi Lengkap...</p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Berkas / Tautan</h4>
+          <div class="flex gap-2" id="detail-modal-links-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="p-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-900/50">
+        <div class="flex gap-2">
+          <button id="detail-modal-edit-btn"
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-slate-600 hover:text-slate-850 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <i data-lucide="edit" class="w-4 h-4"></i> Edit
+          </button>
+          <button id="detail-modal-delete-btn"
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-rose-600 hover:text-rose-700 text-xs font-semibold hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-colors">
+            <i data-lucide="trash-2" class="w-4 h-4"></i> Hapus
+          </button>
+        </div>
+        <button onclick="closeModal('assignment-detail-modal')"
+          class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold text-xs transition-colors">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2. ADD & EDIT ASSIGNMENT DIALOG MODAL -->
+  <dialog id="assignment-form-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-lg w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col max-h-[90vh]">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="assignment-form-title" class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">Tambah
+          Tugas Baru</h3>
+        <button onclick="closeModal('assignment-form-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="assignment-form" onsubmit="saveAssignment(event)" class="p-6 space-y-4 overflow-y-auto no-scrollbar">
+        <input type="hidden" id="assignment-id">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Mata
+            Pelajaran *</label>
+          <select id="assignment-subject" onchange="updateFormCategories(this.value)"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs font-semibold focus:outline-none focus:border-brand-500">
+            <option value="Informatika">Informatika</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="assignment-title"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Judul
+            Tugas *</label>
+          <input type="text" id="assignment-title" required placeholder="Contoh: Membuat Web Portofolio Sekolah"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="assignment-category"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Kategori
+              *</label>
+            <select id="assignment-category" required
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+              <!-- JS Populated options -->
+            </select>
+          </div>
+          <div>
+            <label for="assignment-date"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Tanggal
+              Posting *</label>
+            <input type="date" id="assignment-date" required
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="assignment-score"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Nilai
+              Tugas (0-100, Opsional)</label>
+            <input type="number" id="assignment-score" min="0" max="100" placeholder="Skor"
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label for="assignment-link"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Tautan
+              Tugas (Opsional)</label>
+            <input type="url" id="assignment-link" placeholder="https://..."
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="assignment-description"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Deskripsi
+            Lengkap *</label>
+          <textarea id="assignment-description" rows="4" required placeholder="Tulis deskripsi tugas Anda..."
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3">
+          <button type="button" onclick="closeModal('assignment-form-modal')"
+            class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-650 dark:text-slate-350 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Simpan
+            Tugas</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 3. EXPORT / HOSTING INFORMATION DIALOG MODAL -->
+  <dialog id="export-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-lg w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="upload-cloud" class="text-brand-500"></i>
+          <span>Ekspor & Hosting Website Anda</span>
+        </h3>
+        <button onclick="closeModal('export-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-400">
+          Website ini menyimpan profil dan tugas Anda langsung di **LocalStorage browser Anda**. Agar tugas baru yang
+          Anda input dapat diakses permanen saat di-hosting, unduh versi HTML terbaru di bawah ini.
+        </p>
+
+        <div
+          class="p-4 rounded-2xl bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100/50 dark:border-brand-900/30 space-y-2">
+          <h4 class="font-bold text-brand-800 dark:text-brand-350 text-xs uppercase tracking-wider">Bagaimana caranya?
+          </h4>
+          <ol class="list-decimal list-inside text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <li>Tambahkan tugas atau edit profil Anda sesuka hati di website ini.</li>
+            <li>Klik tombol **"Unduh HTML Siap Hosting"** di bawah.</li>
+            <li>File `index.html` baru akan terunduh dengan data inputan Anda sebagai bawaan/default baru.</li>
+            <li>Unggah file HTML baru tersebut ke platform hosting statis seperti **GitHub Pages**, **Netlify**, atau
+              **Vercel**!</li>
+          </ol>
+        </div>
+
+        <div class="flex gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 justify-end">
+          <button onclick="closeModal('export-modal')"
+            class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 text-slate-655 dark:text-slate-355 text-xs font-semibold transition-colors">Tutup</button>
+          <button onclick="exportAndDownloadHTML()"
+            class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md transition-all">
+            <i data-lucide="download-cloud" class="w-4 h-4"></i>
+            <span>Unduh HTML Siap Hosting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4. OWNER AUTH PIN DIALOG MODAL -->
+  <dialog id="auth-pin-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-sm w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="shield-alert" class="text-brand-500"></i>
+          <span>Autentikasi Pemilik</span>
+        </h3>
+        <button onclick="closeModal('auth-pin-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handlePinSubmit(event)" class="p-6 space-y-4">
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Halaman ini dilindungi. Masukkan PIN Pemilik untuk mengaktifkan mode edit dan hapus. (PIN Bawaan: <code
+            class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded font-mono font-bold"></code>)
+        </p>
+        <div>
+          <label for="owner-pin-input"
+            class="block text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Masukkan
+            PIN Keamanan</label>
+          <input type="password" id="owner-pin-input" required placeholder="••••" maxlength="8"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center text-lg font-bold font-mono tracking-[0.5em] focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:focus:ring-brand-900/30">
+        </div>
+        <div class="pt-2 flex justify-end gap-2.5">
+          <button type="button" onclick="closeModal('auth-pin-modal')"
+            class="px-4.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 text-slate-655 dark:text-slate-350 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Konfirmasi</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ======================== TOAST NOTIFICATION CONTAINER ======================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn"
+    class="p-3 bg-brand-500 hover:bg-brand-600 text-white rounded-2xl shadow-premium dark:shadow-premium-dark hover:-translate-y-1 transition-all"
+    aria-label="Back to Top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Global JavaScript Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+
+
+</html>
