@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Profil Saya - Portofolio & Galeri Tugas Saya</title>
+  <meta name="description"
+    content="Profil lengkap Leticia Cielo Kurniawan, siswa kelas 11 IPA di SMAN 1 Antigravity. Kumpulan hobi, minat utama, dan skill pemrograman.">
+  <meta name="keywords" content="profil, leticia, biografi, skill, portofolio, sma cinta kasih tzu chi">
+  <meta name="author" content="Leticia Cielo Kurniawan">
+  <meta property="og:title" content="Profil Saya - Portofolio & Galeri Tugas Saya">
+  <meta property="og:description" content="Profil lengkap dan biografi Leticia Cielo Kurniawan.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<img src=" assets/gallery/leticia.jpeg" viewBox=%220 0 100 100%22><text
+    y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.08)',
+            'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'premium': '0 20px 40px -15px rgba(14, 165, 233, 0.12)',
+            'premium-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Global & Page specific stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/profil.css">
+</head>
+
+<body
+  class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 min-h-screen flex flex-col antialiased overflow-x-hidden">
+
+  <!-- Loading Screen Loader -->
+  <div id="loading-screen">
+    <div class="loading-spinner"></div>
+    <span class="text-sm font-heading font-extrabold text-slate-600 dark:text-slate-350 tracking-wider">Loading
+      Profil...</span>
+  </div>
+
+  <div class="page-transition flex-1 min-h-screen flex flex-col">
+
+    <!-- ================= TOP NAVIGATION HEADER ================= -->
+    <header
+      class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+
+          <div class="flex items-center gap-3">
+            <a href="index.html" onclick="switchTab('dashboard'); return false;"
+              class="cursor-pointer flex items-center gap-2.5 group">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                L
+              </div>
+              <div>
+                <h1
+                  class="font-heading font-extrabold text-base leading-tight tracking-wide dark:text-white group-hover:text-brand-500 transition-colors">
+                  Leticias
+                </h1>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Profil & Kumpulan Tugas</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="hidden md:flex items-center gap-1.5">
+            <a href="index.html" id="nav-dashboard"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('dashboard'); return false;">
+              <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="profil.html" id="nav-profil"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('profil'); return false;">
+              <i data-lucide="user" class="w-4 h-4"></i>
+              <span>Profil</span>
+            </a>
+            <a href="informatika.html" id="nav-informatika"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('informatika'); return false;">
+              <i data-lucide="binary" class="w-4 h-4"></i>
+              <span>Informatika</span>
+            </a>
+            <a href="bahasa-indonesia.html" id="nav-bahasa_indonesia"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('bahasa_indonesia'); return false;">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>B. Indonesia</span>
+            </a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40 border border-slate-200/20 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span id="live-clock">00:00:00 WIB</span>
+            </div>
+
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"
+              class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-650 dark:text-slate-355 border border-slate-200/40 dark:border-slate-800/80 transition-all hover:scale-105">
+              <i id="theme-btn-icon" data-lucide="sun" class="w-4.5 h-4.5 text-brand-600 dark:text-brand-400"></i>
+            </button>
+
+
+
+
+
+            <button onclick="openExportModal()"
+              class="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all hover:scale-105 shadow-sm">
+              <i data-lucide="download-cloud" class="w-4 h-4"></i>
+              <span>Ekspor</span>
+            </button>
+
+            <a href="profil.html"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden border border-slate-250 dark:border-slate-750 hover:scale-105 transition-all p-0.5">
+              <img src="assets/Gallery/leticia.jpg" class="w-full h-full object-cover rounded-lg">
+            </a>
+
+
+            <button onclick="toggleMobileMenu()"
+              class="md:hidden p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-655 dark:text-slate-300 border border-slate-200/40 dark:border-slate-800/80 transition-all">
+              <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="mobile-menu"
+        class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-all duration-300">
+        <div class="px-4 py-3.5 space-y-2">
+          <a href="index.html" id="mobile-nav-dashboard"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('dashboard'); return false;">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="profil.html" id="mobile-nav-profil"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('profil'); return false;">
+            <i data-lucide="user" class="w-4.5 h-4.5"></i>
+            <span>Profil Saya</span>
+          </a>
+          <a href="informatika.html" id="mobile-nav-informatika"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('informatika'); return false;">
+            <i data-lucide="binary" class="w-4.5 h-4.5"></i>
+            <span>Informatika</span>
+          </a>
+          <a href="bahasa-indonesia.html" id="mobile-nav-bahasa_indonesia"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('bahasa_indonesia'); return false;">
+            <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
+            <span>Bahasa Indonesia</span>
+          </a>
+          <div class="pt-2 border-t border-slate-150 dark:border-slate-800/80">
+            <button onclick="openExportModal()"
+              class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all">
+              <i data-lucide="download-cloud" class="w-4.5 h-4.5"></i>
+              <span>Unduh File Hosting (Ekspor)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN WRAPPER ================= -->
+    <main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto pb-24">
+
+      <!-- ================= 2. TAB: PROFIL ================= -->
+      <section id="tab-profil" class="tab-content space-y-6">
+
+        <!-- Profile Premium Banner Card -->
+        <div
+          class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 overflow-hidden shadow-sm hover:shadow transition-all duration-300">
+          <div
+            class="h-44 bg-gradient-to-r from-brand-100 via-sky-100 to-brand-300 dark:from-slate-800 dark:via-brand-950/30 dark:to-slate-700 relative">
+            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+          </div>
+
+
+          <div class="px-6 md:px-8 pb-8 relative">
+            <!-- Avatar layout -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between -mt-20 mb-6 gap-6">
+              <div class="flex flex-col md:flex-row items-center md:items-end gap-5 text-center md:text-left">
+                <div
+                  class="w-36 h-36 rounded-2xl bg-white dark:bg-slate-900 overflow-hidden border-4 border-white dark:border-slate-900 shadow-premium dark:shadow-premium-dark p-1">
+                  <img src="assets/Gallery/leticia.jpg" class="w-full h-full object-cover rounded-xl">
+                </div>
+
+                <div class="md:mb-4">
+                  <div class="flex items-center justify-center md:justify-start gap-2">
+                    <h2 id="profile-name"
+                      class="font-heading font-extrabold text-2xl md:text-3xl tracking-tight dark:text-white">Leticia
+                      Cielo Kurniawan</h2>
+                    <span
+                      class="inline-flex items-center px-2 py-0.5 rounded bg-brand-100 dark:bg-brand-900/60 text-[10px] font-bold text-brand-700 dark:text-brand-300 uppercase tracking-wide">Siswa</span>
+                  </div>
+                  <p id="profile-bio-headline"
+                    class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg font-medium">
+                    Lethiyy syg georgiee
+                  </p>
+                  <div
+                    class="flex items-center justify-center md:justify-start gap-4 mt-3 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    <span class="flex items-center gap-1.5"><i data-lucide="map-pin"
+                        class="w-3.5 h-3.5 text-brand-500"></i> Jakarta, Indonesia</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="graduation-cap"
+                        class="w-3.5 h-3.5 text-brand-500"></i> <span id="profile-school-details">SMA Cinta Kasih Tzu
+                        Chi</span></span>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Sunting button (Kunci PIN) -->
+              <button type="button" onclick="document.getElementById('auth-pin-modal').showModal()"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all">
+                <i data-lucide="lock" class="w-4 h-4"></i>
+                <span>Sunting Profil Saya</span>
+              </button>
+
+            </div>
+
+            <hr class="border-slate-100 dark:border-slate-800 my-6">
+
+            <!-- Profile Info Split Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+              <!-- Left Column: Biography, Hobbies & Socials -->
+              <div class="lg:col-span-1 space-y-6">
+                <div>
+                  <h4 class="font-heading font-bold text-base dark:text-white mb-3">Tentang Saya</h4>
+                  <p id="profile-full-bio" class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+
+                  </p>
+                </div>
+
+                <div
+                  class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-3.5 text-sm">
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="text-slate-400 dark:text-slate-500 font-semibold text-xs uppercase tracking-wider">Hobi</span>
+                    <span id="profile-hobby" class="font-medium text-slate-700 dark:text-slate-300">Mengedit</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="text-slate-400 dark:text-slate-500 font-semibold text-xs uppercase tracking-wider">Minat
+                      Utama</span>
+                    <span id="profile-interest" class="font-medium text-slate-700 dark:text-slate-300">Desain
+                      Grafik, Editing</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="text-slate-400 dark:text-slate-500 font-semibold text-xs uppercase tracking-wider">Bahasa</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Indonesia, Inggris</span>
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <h4 class="font-heading font-bold text-base dark:text-white">Media Sosial</h4>
+                  <div class="grid grid-cols-2 gap-2" id="profile-social-grid">
+                    <!-- Dynamic rendering from profile.js -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Skills Progress Bars -->
+              <div class="lg:col-span-2 space-y-6">
+                <div
+                  class="bg-slate-50/40 dark:bg-slate-900/20 rounded-2.5xl border border-slate-200/50 dark:border-slate-800/60 p-6 space-y-5">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h3 class="font-heading font-bold text-lg dark:text-white">Kemampuan & Keahlian</h3>
+                      <p class="text-xs text-slate-500">Representasi tingkat pemahaman materi akademik & skill teknis
+                      </p>
+                    </div>
+                    <div class="p-2 rounded-xl bg-brand-50 dark:bg-brand-950/40 text-brand-500">
+                      <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                    </div>
+                  </div>
+
+                  <div class="space-y-4" id="profile-skills-container">
+                    <!-- Dynamic progress bars -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= GALERI FOTO ================= -->
+        <section id="gallery" class="py-20 bg-slate-100">
+
+          <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-12">
+
+              <h2 class="text-4xl font-bold text-slate-800">
+                📸 My Gallery
+              </h2>
+
+              <p class="text-slate-500 mt-3">
+                a photo me and all my friend.
+              </p>
+
+            </div>
+
+            <!-- Grid Gallery -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+              <div class="gallery-card" onclick="openGallery(0)">
+                <img src="assets/Gallery/Foto1.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(1)">
+                <img src="assets/Gallery/Foto2.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(2)">
+                <img src="assets/Gallery/Foto3.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(3)">
+                <img src="assets/Gallery/Foto4.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(4)">
+                <img src="assets/Gallery/Foto5.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(5)">
+                <img src="assets/Gallery/Foto6.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(6)">
+                <img src="assets/Gallery/Foto7.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(7)">
+                <img src="assets/Gallery/Foto8.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(8)">
+                <img src="assets/Gallery/Foto9.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(9)">
+                <img src="assets/Gallery/Foto10.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(10)">
+                <img src="assets/Gallery/Foto11.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(11)">
+                <img src="assets/Gallery/Foto12.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(12)">
+                <img src="assets/Gallery/Foto13.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(13)">
+                <img src="assets/Gallery/Foto14.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(14)">
+                <img src="assets/Gallery/Foto15.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(15)">
+                <img src="assets/Gallery/Foto16.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(16)">
+                <img src="assets/Gallery/Foto17.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(17)">
+                <img src="assets/Gallery/Foto18.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(18)">
+                <img src="assets/Gallery/Foto19.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(19)">
+                <img src="assets/Gallery/Foto20.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(20)">
+                <img src="assets/Gallery/Foto21.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(21)">
+                <img src="assets/Gallery/Foto22.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(22)">
+                <img src="assets/Gallery/Foto23.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(23)">
+                <img src="assets/Gallery/Foto24.jpg" loading="lazy">
+              </div>
+
+              <div class="gallery-card" onclick="openGallery(24)">
+                <img src="assets/Gallery/Foto25.jpg" loading="lazy">
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div id="galleryModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+
+          <button onclick="closeGallery()" class="absolute top-6 right-8 text-white text-5xl hover:text-red-400">
+            &times;
+          </button>
+
+          <button onclick="prevImage()" class="absolute left-6 text-white text-6xl hover:text-blue-400">
+            ❮
+          </button>
+
+          <img id="galleryPreview" class="max-w-[90%] max-h-[85%] rounded-2xl shadow-2xl">
+
+          <button onclick="nextImage()" class="absolute right-6 text-white text-6xl hover:text-blue-400">
+            ❯
+          </button>
+
+          <div id="imageCounter" class="absolute bottom-8 text-white text-lg font-semibold">
+            1 / 25
+          </div>
+
+        </div>
+
+        <!--=================FOOTER=================-->
+        <footer
+          class="mt-auto border-t border-slate-200/50 dark:border-slate-800/50 bg-white/75 dark:bg-slate-900/40 backdrop-blur-md py-6 sm:py-8 transition-colors duration-300">
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col items-center sm:items-start gap-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-extrabold text-sm shadow-sm">
+                  L
+                </span>
+                <span class="font-heading font-extrabold text-sm tracking-wide dark:text-white">
+                  <span id="footer-logo-name">Leticia</span>s
+                </span>
+              </div>
+              <p class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold mt-1">
+                © <span id="footer-year">2026</span> <span id="footer-copyright-name">Leticia Cielo Kurniawan</span> |
+                SMA
+                Cinta Kasih Tzu Chi
+              </p>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <a href="index.html" class="hover:text-brand-500 transition-colors">Dashboard</a>
+              <a href="profil.html" class="hover:text-brand-500 transition-colors">Profil</a>
+              <a href="informatika.html" class="hover:text-brand-500 transition-colors">Informatika</a>
+              <a href="bahasa-indonesia.html" class="hover:text-brand-500 transition-colors">B. Indonesia</a>
+            </div>
+          </div>
+        </footer>
+
+  </div>
+
+
+
+  <!-- ======================================================= -->
+  <!-- ======================== MODALS ======================== -->
+  <!-- ======================================================= -->
+
+  <!-- 1. PROFILE EDITOR DIALOG MODAL -->
+  <dialog id="profile-editor-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-xl w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col max-h-[90vh]">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">Sunting Profil Saya</h3>
+        <button onclick="closeModal('profile-editor-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="profile-form" onsubmit="saveProfile(event)" class="p-6 space-y-4 overflow-y-auto no-scrollbar">
+        <div>
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Pilih
+            Ilustrasi Avatar</label>
+          <div class="grid grid-cols-4 gap-3">
+            <label
+              class="cursor-pointer relative rounded-xl border-2 border-slate-150 dark:border-slate-800 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/40 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/50 block">
+              <input type="radio" name="profile-avatar" value="avatar1" checked class="hidden"
+                onchange="handlePresetSelect('avatar1')">
+              <div id="select-avatar1-preview"
+                class="w-full aspect-square overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800"></div>
+            </label>
+            <label
+              class="cursor-pointer relative rounded-xl border-2 border-slate-150 dark:border-slate-800 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/40 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/50 block">
+              <input type="radio" name="profile-avatar" value="avatar2" class="hidden"
+                onchange="handlePresetSelect('avatar2')">
+              <div id="select-avatar2-preview"
+                class="w-full aspect-square overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800"></div>
+            </label>
+            <label
+              class="cursor-pointer relative rounded-xl border-2 border-slate-150 dark:border-slate-800 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/40 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/50 block">
+              <input type="radio" name="profile-avatar" value="avatar3" class="hidden"
+                onchange="handlePresetSelect('avatar3')">
+              <div id="select-avatar3-preview"
+                class="w-full aspect-square overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800"></div>
+            </label>
+            <label
+              class="cursor-pointer relative rounded-xl border-2 border-slate-150 dark:border-slate-800 p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800/40 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/50 block">
+              <input type="radio" name="profile-avatar" value="avatar4" class="hidden"
+                onchange="handlePresetSelect('avatar4')">
+              <div id="select-avatar4-preview"
+                class="w-full aspect-square overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-150 dark:border-slate-800/60 pt-4">
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Atau
+            Unggah Foto Profil Kustom</label>
+          <div class="flex items-center gap-4">
+            <div id="edit-avatar-preview"
+              class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 overflow-hidden border border-slate-200 dark:border-slate-750 flex items-center justify-center p-0.5 shrink-0">
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-wrap gap-2">
+                <input type="file" id="edit-profile-photo-file" accept="image/*" class="hidden"
+                  onchange="handleProfilePhotoUpload(event)">
+                <button type="button" onclick="document.getElementById('edit-profile-photo-file').click()"
+                  class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-350 text-xs font-bold border border-slate-200 dark:border-slate-700 transition-all flex items-center gap-1.5 shadow-sm">
+                  <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+                  <span>Pilih Foto</span>
+                </button>
+                <button type="button" onclick="clearCustomPhoto()" id="clear-photo-btn"
+                  class="hidden px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/30 dark:hover:bg-rose-950 text-rose-600 dark:text-rose-400 text-xs font-bold border border-rose-100 dark:border-rose-900/30 transition-all flex items-center gap-1.5 shadow-sm">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  <span>Hapus</span>
+                </button>
+              </div>
+              <p class="text-[10px] text-slate-400 dark:text-slate-500 font-medium">PNG, JPG, atau WebP. Maksimal 1MB.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="edit-name"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Nama
+              Lengkap *</label>
+            <input type="text" id="edit-name" required placeholder="Leticia C. K."
+              class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label for="edit-school"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Sekolah &
+              Kelas *</label>
+            <input type="text" id="edit-school" required placeholder="SMAN 1 Antigravity (Kelas 11 IPA)"
+              class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="edit-bio-headline"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Headline
+            Bio Singkat *</label>
+          <input type="text" id="edit-bio-headline" required placeholder="Siswa yang suka coding..."
+            class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+        </div>
+
+        <div>
+          <label for="edit-full-bio"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Biografi
+            Lengkap</label>
+          <textarea id="edit-full-bio" rows="3" placeholder="Tulis biografi lengkap Anda..."
+            class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="edit-hobbies"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Hobi</label>
+            <input type="text" id="edit-hobbies" placeholder="Bermain Game, Membaca"
+              class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label for="edit-interests"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Minat
+              Utama</label>
+            <input type="text" id="edit-interests" placeholder="Web Development, Desain"
+              class="w-full px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div class="space-y-2.5">
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tautan
+            Media Sosial</label>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="relative">
+              <i data-lucide="instagram" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-pink-500"></i>
+              <input type="url" id="edit-social-instagram" placeholder="https://instagram.com/username"
+                class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+            </div>
+            <div class="relative">
+              <i data-lucide="github"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-700 dark:text-slate-350"></i>
+              <input type="url" id="edit-social-github" placeholder="https://github.com/username"
+                class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+            </div>
+            <div class="relative">
+              <i data-lucide="linkedin" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-600"></i>
+              <input type="url" id="edit-social-linkedin" placeholder="https://linkedin.com/in/username"
+                class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+            </div>
+            <div class="relative">
+              <i data-lucide="youtube" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-red-650"></i>
+              <input type="url" id="edit-social-youtube" placeholder="https://youtube.com/@username"
+                class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+            </div>
+            <div class="relative col-span-2">
+              <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-650"></i>
+              <input type="email" id="edit-social-email" placeholder="contoh@surel.com"
+                class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Keahlian &
+            Kemampuan</label>
+          <div class="grid grid-cols-1 gap-2.5" id="edit-skills-form-grid">
+            <!-- Rendered in JS -->
+          </div>
+        </div>
+
+        <div class="border-t border-slate-150 dark:border-slate-800/60 pt-4">
+          <label for="edit-pin"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PIN
+            Pemilik Baru</label>
+          <input type="password" id="edit-pin" required placeholder="Masukkan PIN"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3">
+          <button type="button" onclick="closeModal('profile-editor-modal')"
+            class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-650 dark:text-slate-355 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Simpan
+            Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- 2. EXPORT MODAL -->
+  <dialog id="export-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-lg w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="upload-cloud" class="text-brand-500"></i>
+          <span>Ekspor & Hosting Website Anda</span>
+        </h3>
+        <button onclick="closeModal('export-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-600 dark:text-slate-400">
+          Website ini menyimpan profil dan tugas Anda langsung di **LocalStorage browser Anda**. Agar tugas baru yang
+          Anda input dapat diakses permanen saat di-hosting, unduh versi HTML terbaru di bawah ini.
+        </p>
+
+        <div
+          class="p-4 rounded-2xl bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100/50 dark:border-brand-900/30 space-y-2">
+          <h4 class="font-bold text-brand-800 dark:text-brand-350 text-xs uppercase tracking-wider">Bagaimana caranya?
+          </h4>
+          <ol class="list-decimal list-inside text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <li>Tambahkan tugas atau edit profil Anda sesuka hati di website ini.</li>
+            <li>Klik tombol **"Unduh HTML Siap Hosting"** di bawah.</li>
+            <li>File `index.html` baru akan terunduh dengan data inputan Anda sebagai bawaan/default baru.</li>
+            <li>Unggah file HTML baru tersebut ke platform hosting statis seperti **GitHub Pages**, **Netlify**, atau
+              **Vercel**!</li>
+          </ol>
+        </div>
+
+        <div class="flex gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 justify-end">
+          <button onclick="closeModal('export-modal')"
+            class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 text-slate-655 dark:text-slate-355 text-xs font-semibold transition-colors">Tutup</button>
+          <button onclick="exportAndDownloadHTML()"
+            class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md transition-all">
+            <i data-lucide="download-cloud" class="w-4 h-4"></i>
+            <span>Unduh HTML Siap Hosting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3. OWNER AUTH PIN MODAL -->
+  <dialog id="auth-pin-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-sm w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="shield-alert" class="text-brand-500"></i>
+          <span>Autentikasi Pemilik</span>
+        </h3>
+        <button onclick="closeModal('auth-pin-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handlePinSubmit(event)" class="p-6 space-y-4">
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Halaman ini dilindungi. Masukkan PIN Pemilik untuk mengaktifkan mode edit dan hapus. (PIN Bawaan: <code
+            class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded font-mono font-bold"></code>)
+        </p>
+        <div>
+          <label for="owner-pin-input"
+            class="block text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Masukkan
+            PIN Keamanan</label>
+          <input type="password" id="owner-pin-input" required placeholder="••••" maxlength="8"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center text-lg font-bold font-mono tracking-[0.5em] focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:focus:ring-brand-900/30">
+        </div>
+        <div class="pt-2 flex justify-end gap-2.5">
+          <button type="button" onclick="closeModal('auth-pin-modal')"
+            class="px-4.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 text-slate-655 dark:text-slate-355 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Konfirmasi</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ======================== TOAST NOTIFICATION CONTAINER ======================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn"
+    class="p-3 bg-brand-500 hover:bg-brand-600 text-white rounded-2xl shadow-premium dark:shadow-premium-dark hover:-translate-y-1 transition-all"
+    aria-label="Back to Top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Global & Page specific scripts -->
+  <!-- Global & Page specific scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/profil.js"></script>
+
+  <script>
+    // Initialize presets preview in the editor modal
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('select-avatar1-preview').innerHTML = AVATARS.avatar1;
+      document.getElementById('select-avatar2-preview').innerHTML = AVATARS.avatar2;
+      document.getElementById('select-avatar3-preview').innerHTML = AVATARS.avatar3;
+      document.getElementById('select-avatar4-preview').innerHTML = AVATARS.avatar4;
+    });
+
+    // Menambahkan fungsi untuk menyambungkan PIN ke Edit Profil
+    function handlePinSubmit(event) {
+      event.preventDefault(); // Mencegah halaman refresh saat submit
+
+      const pinInput = document.getElementById('owner-pin-input').value;
+
+      // Memeriksa apakah PIN sesuai dengan bawaan yaitu 1234
+      if (pinInput === '1234') {
+        // 1. Tutup modal PIN
+        closeModal('auth-pin-modal');
+
+        // 2. Buka modal Sunting Profil
+        openProfileEditorModal();
+
+        // 3. Kosongkan kembali kolom input PIN untuk keamanan
+        document.getElementById('owner-pin-input').value = '';
+      } else {
+        alert('PIN yang Anda masukkan salah. Silakan coba lagi.');
+      }
+    }
+  </script>
+
+</html>
+</body>
+
+</html>
