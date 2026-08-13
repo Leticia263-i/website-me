@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Informatika - Portofolio & Galeri Tugas Saya</title>
+  <meta name="description"
+    content="Kumpulan tugas mata pelajaran Informatika Leticia Cielo Kurniawan. Galeri pemrograman web, spreadsheet, jaringan komputer, dan algoritma.">
+  <meta name="keywords" content="informatika, coding, web dev, jaringan, tugas sekolah, leticia">
+  <meta name="author" content="Leticia Cielo Kurniawan">
+  <meta property="og:title" content="Informatika - Portofolio & Galeri Tugas Saya">
+  <meta property="og:description" content="Galeri tugas informatika, coding, dan jaringan komputer.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(14, 165, 233, 0.08)',
+            'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'premium': '0 20px 40px -15px rgba(14, 165, 233, 0.12)',
+            'premium-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Global & Page specific stylesheets -->
+  <link class="page-css" rel="stylesheet" href="assets/css/style.css">
+  <link class="page-css" rel="stylesheet" href="assets/css/informatika.css">
+</head>
+
+<body
+  class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 min-h-screen flex flex-col antialiased overflow-x-hidden">
+
+  <!-- Loading Screen Loader -->
+  <div id="loading-screen">
+    <div class="loading-spinner"></div>
+    <span class="text-sm font-heading font-extrabold text-slate-600 dark:text-slate-350 tracking-wider">Loading
+      Informatika...</span>
+  </div>
+
+  <div class="page-transition flex-1 min-h-screen flex flex-col">
+
+    <!-- ================= TOP NAVIGATION HEADER ================= -->
+    <header
+      class="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+
+          <div class="flex items-center gap-3">
+            <a href="index.html" onclick="switchTab('dashboard'); return false;"
+              class="cursor-pointer flex items-center gap-2.5 group">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                L
+              </div>
+              <div>
+                <h1
+                  class="font-heading font-extrabold text-base leading-tight tracking-wide dark:text-white group-hover:text-brand-500 transition-colors">
+                  Leticias
+                </h1>
+                <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Profil & Kumpulan Tugas</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="hidden md:flex items-center gap-1.5">
+            <a href="index.html" id="nav-dashboard"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('dashboard'); return false;">
+              <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="profil.html" id="nav-profil"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('profil'); return false;">
+              <i data-lucide="user" class="w-4 h-4"></i>
+              <span>Profil</span>
+            </a>
+            <a href="informatika.html" id="nav-informatika"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('informatika'); return false;">
+              <i data-lucide="binary" class="w-4 h-4"></i>
+              <span>Informatika</span>
+            </a>
+            <a href="bahasa-indonesia.html" id="nav-bahasa_indonesia"
+              class="nav-item flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+              onclick="switchTab('bahasa_indonesia'); return false;">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>B. Indonesia</span>
+            </a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40 border border-slate-200/20 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span id="live-clock">00:00:00 WIB</span>
+            </div>
+
+            <button onclick="toggleDarkMode()" aria-label="Toggle Dark Mode"
+              class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-655 dark:text-slate-355 border border-slate-200/40 dark:border-slate-800/80 transition-all hover:scale-105">
+              <i id="theme-btn-icon" data-lucide="sun" class="w-4.5 h-4.5 text-brand-600 dark:text-brand-400"></i>
+            </button>
+
+
+
+
+
+            <button onclick="openExportModal()"
+              class="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all hover:scale-105 shadow-sm">
+              <i data-lucide="download-cloud" class="w-4 h-4"></i>
+              <span>Ekspor</span>
+            </button>
+
+            <a href="profil.html" onclick="switchTab('profil'); return false;"
+              class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-slate-800 overflow-hidden border border-slate-250 dark:border-slate-750 hover:scale-105 transition-all p-0.5"
+              id="header-avatar-btn">
+              <!-- Rendered Avatar -->
+            </a>
+
+            <button onclick="toggleMobileMenu()"
+              class="md:hidden p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-655 dark:text-slate-300 border border-slate-200/40 dark:border-slate-800/80 transition-all">
+              <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="mobile-menu"
+        class="hidden md:hidden border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-all duration-300">
+        <div class="px-4 py-3.5 space-y-2">
+          <a href="index.html" id="mobile-nav-dashboard"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('dashboard'); return false;">
+            <i data-lucide="layout-dashboard" class="w-4.5 h-4.5"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="profil.html" id="mobile-nav-profil"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('profil'); return false;">
+            <i data-lucide="user" class="w-4.5 h-4.5"></i>
+            <span>Profil Saya</span>
+          </a>
+          <a href="informatika.html" id="mobile-nav-informatika"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('informatika'); return false;">
+            <i data-lucide="binary" class="w-4.5 h-4.5"></i>
+            <span>Informatika</span>
+          </a>
+          <a href="bahasa-indonesia.html" id="mobile-nav-bahasa_indonesia"
+            class="mobile-nav-item w-full flex items-center gap-3.5 px-4.5 py-3 rounded-xl text-sm font-bold text-slate-650 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800/50 transition-all"
+            onclick="switchTab('bahasa_indonesia'); return false;">
+            <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
+            <span>Bahasa Indonesia</span>
+          </a>
+          <div class="pt-2 border-t border-slate-150 dark:border-slate-800/80">
+            <button onclick="openExportModal()"
+              class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/60 dark:hover:bg-brand-950 text-brand-700 dark:text-brand-300 text-xs font-bold border border-brand-200/50 dark:border-brand-900/30 transition-all">
+              <i data-lucide="download-cloud" class="w-4.5 h-4.5"></i>
+              <span>Unduh File Hosting (Ekspor)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN WRAPPER ================= -->
+    <main class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl w-full mx-auto pb-24">
+
+      <!-- ================= 3. TAB: INFORMATIKA ================= -->
+      <section id="tab-informatika" class="tab-content space-y-6">
+
+        <!-- Header Info -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="font-heading font-extrabold text-2xl dark:text-white">Mata Pelajaran: Informatika</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Galeri proyek web dev, pemrograman dasar, spreadsheet,
+              dan teori informatika</p>
+          </div>
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3">
+
+
+          </div>
+        </div>
+
+        <!-- Filter category pills and Search Bar -->
+        <div
+          class="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800/80">
+          <div class="flex flex-wrap gap-1.5" id="info-category-pills">
+            <!-- Populated dynamically in javascript -->
+          </div>
+
+          <div class="relative w-full md:w-64">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+            <input type="text" id="info-search" oninput="renderAssignmentsTab()" placeholder="Cari tugas informatika..."
+              class="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700">
+          </div>
+        </div>
+
+        <!-- Assignments Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="info-assignments-grid">
+          <!-- Dynamically populated cards from JS -->
+        </div>
+
+        <!-- ================= ARTIKEL INFORMATIKA ================= -->
+        <section class="space-y-8">
+
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-slate-800">
+              📚 Artikel Informatika
+            </h2>
+
+            <p class="text-slate-500 mt-2">
+              Kumpulan artikel mengenai materi Informatika.
+            </p>
+          </div>
+
+          <!-- GRID ARTIKEL -->
+          <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Artikel 1 -->
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4" alt="Pemrograman"
+                class="w-full h-60 object-cover">
+
+              <div class="p-6">
+
+                <h3 class="text-2xl font-bold mb-4">
+                  Dasar Pemrograman
+                </h3>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Pemrograman merupakan proses membuat serangkaian instruksi agar komputer dapat menjalankan tugas
+                  tertentu.
+                  Bahasa pemrograman digunakan sebagai media komunikasi antara manusia dan komputer sehingga setiap
+                  perintah
+                  dapat dipahami dengan benar.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Dalam pemrograman terdapat konsep penting seperti variabel, tipe data, percabangan, perulangan, serta
+                  fungsi. Konsep-konsep tersebut menjadi dasar dalam menyelesaikan berbagai permasalahan menggunakan
+                  komputer.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Belajar pemrograman melatih kemampuan berpikir logis, kritis, dan sistematis. Setiap masalah dipecah
+                  menjadi langkah-langkah kecil sehingga solusi dapat disusun secara terstruktur.
+                </p>
+
+                <p class="text-slate-600 text-justify">
+                  Saat ini pemrograman dimanfaatkan dalam berbagai bidang, mulai dari pengembangan website, aplikasi
+                  mobile,
+                  kecerdasan buatan, hingga pengolahan data dalam dunia industri.
+                </p>
+
+              </div>
+            </article>
+
+            <!-- Artikel 2 -->
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Jaringan Komputer"
+                class="w-full h-60 object-cover">
+
+              <div class="p-6">
+
+                <h3 class="text-2xl font-bold mb-4">
+                  Jaringan Komputer
+                </h3>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Jaringan komputer adalah sekumpulan perangkat yang saling terhubung untuk berbagi informasi dan sumber
+                  daya. Dengan jaringan, komputer dapat bertukar data secara cepat dan efisien.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Internet merupakan contoh jaringan terbesar di dunia. Berbagai layanan seperti website, email, video
+                  conference, dan media sosial dapat berjalan karena adanya koneksi jaringan komputer.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Dalam jaringan terdapat perangkat seperti router, switch, access point, dan modem. Masing-masing
+                  memiliki
+                  fungsi yang berbeda untuk mengatur lalu lintas data.
+                </p>
+
+                <p class="text-slate-600 text-justify">
+                  Memahami jaringan komputer membantu siswa mengetahui bagaimana informasi dikirim dari satu perangkat
+                  ke
+                  perangkat lainnya secara aman dan efisien.
+                </p>
+
+              </div>
+            </article>
+
+            <!-- Artikel 3 -->
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Keamanan Siber"
+                class="w-full h-60 object-cover">
+
+              <div class="p-6">
+
+                <h3 class="text-2xl font-bold mb-4">
+                  Keamanan Siber
+                </h3>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Keamanan siber merupakan upaya melindungi perangkat, jaringan, dan data dari ancaman digital seperti
+                  virus, malware, phishing, maupun pencurian data.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Penggunaan kata sandi yang kuat, autentikasi dua faktor, serta pembaruan perangkat lunak secara rutin
+                  merupakan langkah sederhana yang dapat meningkatkan keamanan digital.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Kesadaran pengguna menjadi faktor yang sangat penting karena banyak serangan siber terjadi akibat
+                  kelalaian manusia ketika membuka tautan atau mengunduh file yang tidak dikenal.
+                </p>
+
+                <p class="text-slate-600 text-justify">
+                  Dengan memahami keamanan siber, siswa dapat menjadi pengguna teknologi yang lebih bijak serta mampu
+                  melindungi data pribadi ketika menggunakan internet.
+                </p>
+
+              </div>
+            </article>
+
+            <!-- Artikel 4 -->
+            <article class="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Kecerdasan Buatan"
+                class="w-full h-60 object-cover">
+
+              <div class="p-6">
+
+                <h3 class="text-2xl font-bold mb-4">
+                  Kecerdasan Buatan (Artificial Intelligence)
+                </h3>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Artificial Intelligence atau AI adalah teknologi yang memungkinkan komputer meniru kemampuan berpikir
+                  manusia, seperti mengenali gambar, memahami bahasa, dan mengambil keputusan.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  AI telah diterapkan pada berbagai bidang, seperti kendaraan otonom, chatbot, sistem rekomendasi,
+                  kesehatan, pendidikan, hingga industri kreatif.
+                </p>
+
+                <p class="text-slate-600 mb-4 text-justify">
+                  Teknologi AI bekerja dengan memanfaatkan data dalam jumlah besar untuk menemukan pola. Semakin banyak
+                  data
+                  yang dipelajari, semakin baik kemampuan sistem dalam memberikan hasil.
+                </p>
+
+                <p class="text-slate-600 text-justify">
+                  Meskipun memiliki banyak manfaat, penggunaan AI tetap harus dilakukan secara bertanggung jawab dengan
+                  memperhatikan etika, keamanan data, dan dampaknya terhadap kehidupan manusia.
+                </p>
+
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+        <footer
+          class="mt-auto border-t border-slate-200/50 dark:border-slate-800/50 bg-white/75 dark:bg-slate-900/40 backdrop-blur-md py-6 sm:py-8 transition-colors duration-300">
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col items-center sm:items-start gap-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white font-heading font-extrabold text-sm shadow-sm">
+                  L
+                </span>
+                <span class="font-heading font-extrabold text-sm tracking-wide dark:text-white">
+                  <span id="footer-logo-name">Leticia</span>s
+                </span>
+              </div>
+              <p class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold mt-1">
+                © <span id="footer-year">2026</span> <span id="footer-copyright-name">Leticia Cielo Kurniawan</span> |
+                SMA
+                Cinta Kasih Tzu Chi
+              </p>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <a href="index.html" class="hover:text-brand-500 transition-colors">Dashboard</a>
+              <a href="profil.html" class="hover:text-brand-500 transition-colors">Profil</a>
+              <a href="informatika.html" class="hover:text-brand-500 transition-colors">Informatika</a>
+              <a href="bahasa-indonesia.html" class="hover:text-brand-500 transition-colors">B. Indonesia</a>
+            </div>
+          </div>
+        </footer>
+
+  </div>
+
+  <!-- ======================== MODALS ======================== -->
+
+  <!-- 1. DETAIL DIALOG MODAL -->
+  <dialog id="assignment-detail-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-2xl w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col max-h-[85vh]">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span id="detail-modal-subject" class="px-2.5 py-1 rounded-lg text-xs font-bold">Matapelajaran</span>
+          <span id="detail-modal-category"
+            class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-660 dark:text-slate-400">Kategori</span>
+        </div>
+        <button onclick="closeModal('assignment-detail-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5 overflow-y-auto no-scrollbar">
+        <div>
+          <h3 id="detail-modal-title"
+            class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white">Judul Tugas</h3>
+          <div class="flex items-center gap-4 mt-2 text-xs text-slate-400 font-semibold">
+            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> <span
+                id="detail-modal-date">Tanggal</span></span>
+            <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-500"></i> Nilai:
+              <span id="detail-modal-score" class="text-amber-600 font-bold dark:text-amber-400">-</span></span>
+          </div>
+        </div>
+
+        <div
+          class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-sm leading-relaxed text-slate-655 dark:text-slate-350">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-450 dark:text-slate-500 mb-2">Deskripsi Tugas
+          </h4>
+          <p id="detail-modal-description">Deskripsi Lengkap...</p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Berkas / Tautan</h4>
+          <div class="flex gap-2" id="detail-modal-links-container"></div>
+        </div>
+      </div>
+
+      <div
+        class="p-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-900/50">
+        <div class="flex gap-2">
+          <button id="detail-modal-edit-btn"
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-slate-600 hover:text-slate-850 dark:text-slate-400 dark:hover:text-slate-200 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <i data-lucide="edit" class="w-4 h-4"></i> Edit
+          </button>
+          <button id="detail-modal-delete-btn"
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl text-rose-600 hover:text-rose-700 text-xs font-semibold hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-colors">
+            <i data-lucide="trash-2" class="w-4 h-4"></i> Hapus
+          </button>
+        </div>
+        <button onclick="closeModal('assignment-detail-modal')"
+          class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold text-xs transition-colors">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2. ADD & EDIT ASSIGNMENT DIALOG MODAL -->
+  <dialog id="assignment-form-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-lg w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col max-h-[90vh]">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="assignment-form-title" class="font-heading font-extrabold text-lg text-slate-900 dark:text-white">Tambah
+          Tugas Baru</h3>
+        <button onclick="closeModal('assignment-form-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="assignment-form" onsubmit="saveAssignment(event)" class="p-6 space-y-4 overflow-y-auto no-scrollbar">
+        <input type="hidden" id="assignment-id">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Mata
+            Pelajaran *</label>
+          <select id="assignment-subject"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs font-semibold focus:outline-none">
+            <option value="Informatika">Informatika</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="assignment-title"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Judul
+            Tugas *</label>
+          <input type="text" id="assignment-title" required placeholder="Contoh: Membuat Web Portofolio Sekolah"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="assignment-category"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Kategori
+              *</label>
+            <select id="assignment-category" required
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+              <!-- JS Populated options -->
+            </select>
+          </div>
+          <div>
+            <label for="assignment-date"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Tanggal
+              Posting *</label>
+            <input type="date" id="assignment-date" required
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="assignment-score"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Nilai
+              Tugas (0-100, Opsional)</label>
+            <input type="number" id="assignment-score" min="0" max="100" placeholder="Skor"
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+          <div>
+            <label for="assignment-link"
+              class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Tautan
+              Tugas (Opsional)</label>
+            <input type="url" id="assignment-link" placeholder="https://..."
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="assignment-description"
+            class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Deskripsi
+            Lengkap *</label>
+          <textarea id="assignment-description" rows="4" required placeholder="Tulis deskripsi tugas Anda..."
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-sm focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3">
+          <button type="button" onclick="closeModal('assignment-form-modal')"
+            class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-650 dark:text-slate-350 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Simpan
+            Tugas</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+
+
+  <!-- 4. OWNER AUTH PIN MODAL -->
+  <dialog id="auth-pin-modal"
+    class="p-0 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-sm w-full shadow-premium dark:shadow-premium-dark backdrop:bg-slate-950/60 backdrop:backdrop-blur-sm focus:outline-none">
+    <div class="flex flex-col">
+      <div class="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-heading font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <i data-lucide="shield-alert" class="text-brand-500"></i>
+          <span>Autentikasi Pemilik</span>
+        </h3>
+        <button onclick="closeModal('auth-pin-modal')"
+          class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handlePinSubmit(event)" class="p-6 space-y-4">
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Halaman ini dilindungi. Masukkan PIN Pemilik untuk mengaktifkan mode edit dan hapus. (PIN Bawaan: <code
+            class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded font-mono font-bold"></code>)
+        </p>
+        <div>
+          <label for="owner-pin-input"
+            class="block text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">Masukkan
+            PIN Keamanan</label>
+          <input type="password" id="owner-pin-input" required placeholder="••••" maxlength="8"
+            class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center text-lg font-bold font-mono tracking-[0.5em] focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:focus:ring-brand-900/30">
+        </div>
+        <div class="pt-2 flex justify-end gap-2.5">
+          <button type="button" onclick="closeModal('auth-pin-modal')"
+            class="px-4.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 text-slate-655 dark:text-slate-355 text-xs font-semibold transition-colors">Batal</button>
+          <button type="submit"
+            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow transition-colors">Konfirmasi</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ======================== TOAST NOTIFICATION CONTAINER ======================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn"
+    class="p-3 bg-brand-500 hover:bg-brand-600 text-white rounded-2xl shadow-premium dark:shadow-premium-dark hover:-translate-y-1 transition-all"
+    aria-label="Back to Top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Page JS scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/informatika.js"></script>
+</body>
+
+</html>
